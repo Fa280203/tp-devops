@@ -1,0 +1,15 @@
+stages:
+  - test
+  - deploy
+
+test-job:
+  stage: test
+  image: python:3.11
+  script:
+    - pip install -r requirements.txt
+    - python -m unittest discover
+
+deploy-job:
+  stage: deploy
+  script:
+    - echo "Deploying application ..."
